@@ -18,8 +18,8 @@ jobs:
             pwd
             ls
             echo '${{ toJSON(github) }}'
-            git clone git@github.com:openresty/openresty-systemtap-toolkit.git
-            git clone git@github.com:openresty/stapxx.git
+            git clone https://github.com/openresty/openresty-systemtap-toolkit.git
+            git clone https://github.com/openresty/stapxx.git
             
       -
         name: Login to Docker Hub
