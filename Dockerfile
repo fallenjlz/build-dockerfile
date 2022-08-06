@@ -9,4 +9,5 @@ RUN apt clean && \
     apt install -y curl
 COPY openresty-systemtap-toolkit/ /usr/local/openresty/openresty-systemtap-toolkit/
 COPY stapxx/ /usr/local/openresty/stapxx/
+COPY FlameGraph/ /usr/local/openresty/FlameGraph/
   
