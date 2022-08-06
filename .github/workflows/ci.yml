@@ -15,6 +15,7 @@ jobs:
             free -h
             pwd
             ls
+            echo "$GITHUB_REF_NAME"
             
       -
         name: Login to Docker Hub
