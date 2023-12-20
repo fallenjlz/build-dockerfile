@@ -21,8 +21,8 @@ import (
 
 func main() {
     // Set the necessary environment variables
-    os.Setenv("L1_RPC_URL", "YOUR_L1_RPC_URL")
-    os.Setenv("L1_RPC_KIND", "YOUR_L1_RPC_KIND")
+    os.Setenv("L1_RPC_URL", "https://eth-sepolia.g.alchemy.com/v2/NhhIPMo7D3fr8AKPHMqWfrDKbQGWbR7_")
+    os.Setenv("L1_RPC_KIND", "sepolia")
 
     // Execute the necessary shell commands
     runShellCommand("cd", "~/optimism")
@@ -41,7 +41,7 @@ func main() {
         log.Fatalf("Failed to connect to the Ethereum client: %v", err)
     }
 
-    privateKey, err := crypto.HexToECDSA(os.Getenv("YOUR_PRIVATE_KEY_ENV_VARIABLE"))
+    privateKey, err := crypto.HexToECDSA(os.Getenv("71061e8174d4a2df7f51b04c874470b9199af4bf650c6d5a9da5761f6e4f3ad2"))
     if err != nil {
         log.Fatalf("Failed to parse private key: %v", err)
     }
