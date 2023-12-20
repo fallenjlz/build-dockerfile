@@ -34,8 +34,9 @@ RUN make geth
 COPY . /root
 WORKDIR /root/scripts
 RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . 
-RUN ./main
+# CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . 
+RUN go run main.go
+#RUN ./main
 # Set the working directory
 WORKDIR /workspace
 
