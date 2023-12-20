@@ -40,7 +40,7 @@ RUN git --version \
     && jq --version \
     && direnv --version
 
-COPY scripts /root
+COPY . /root
 WORKDIR /root/scripts
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . \
