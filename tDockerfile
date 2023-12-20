@@ -5,36 +5,37 @@ FROM lloevan/op-stack:latest
 WORKDIR /root
 
 # Clone the Optimism Monorepo
-# RUN git clone https://github.com/ethereum-optimism/optimism.git
+RUN git clone https://github.com/ethereum-optimism/optimism.git
 
 # # Change to the repository directory
-# WORKDIR /root/optimism
+WORKDIR /root/optimism
 
 # # Run the version check script
-# RUN ./packages/contracts-bedrock/scripts/getting-started/versions.sh
+RUN ./packages/contracts-bedrock/scripts/getting-started/versions.sh
 
 # # Install project dependencies
-# RUN pnpm install
+RUN pnpm install
 
 # # Build the required packages
-# RUN make op-node op-batcher op-proposer
-# RUN pnpm build
+RUN make op-node op-batcher op-proposer
+RUN pnpm build
 
-# WORKDIR /root
+WORKDIR /root
 # # Clone op-geth
-# RUN git clone https://github.com/ethereum-optimism/op-geth.git
+RUN git clone https://github.com/ethereum-optimism/op-geth.git
 
-# # Change to the op-geth directory
-# WORKDIR /root/op-geth
+# Change to the op-geth directory
+WORKDIR /root/op-geth
 
-# # Build op-geth
-# RUN make geth
+# Build op-geth
+RUN make geth
 
 
 COPY . /root
 WORKDIR /root/scripts
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . 
+RUN ./main
 # Set the working directory
 WORKDIR /workspace
 
