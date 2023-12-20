@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Gdockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/op-stack:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/op-stack:1.0
 
