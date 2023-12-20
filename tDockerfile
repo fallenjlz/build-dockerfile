@@ -20,5 +20,14 @@ RUN pnpm install
 RUN make op-node op-batcher op-proposer
 RUN pnpm build
 
+# Clone op-geth
+RUN git clone https://github.com/ethereum-optimism/op-geth.git
+
+# Change to the op-geth directory
+WORKDIR /root/op-geth
+
+# Build op-geth
+RUN make geth
+
 # The default command to run (modify as needed)
 CMD ["bash"]
