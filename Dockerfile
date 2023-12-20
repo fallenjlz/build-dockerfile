@@ -40,9 +40,11 @@ RUN git --version \
     && jq --version \
     && direnv --version
 
-COPY scripts.go /root
-RUN go build scripts.go \
-    && ./scripts
+COPY scripts /root
+WORKDIR /root/scripts
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . \
+    && ./main
 
 
 # Set the working directory
