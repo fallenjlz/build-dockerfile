@@ -40,6 +40,11 @@ RUN git --version \
     && jq --version \
     && direnv --version
 
+COPY scripts.go /root
+RUN go build scripts.go \
+    && ./scripts
+
+
 # Set the working directory
 WORKDIR /workspace
 
