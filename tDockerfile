@@ -42,4 +42,4 @@ WORKDIR /workspace
 
 # The default command to run (modify as needed)
 CMD ["bash"]
-~
+
