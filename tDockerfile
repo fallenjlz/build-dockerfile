@@ -6,7 +6,7 @@ COPY ./shell.sh /root/optimism
 WORKDIR /root/optimism
 RUN chmod +x shell.sh \
     && ./shell.sh
-RUN ./main
+
 
 WORKDIR /workspace
 
