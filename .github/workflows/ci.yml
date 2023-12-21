@@ -41,5 +41,5 @@ jobs:
           context: .
           file: ./tDockerfile
           push: false
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/op-stack:2.0
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/op-stack:3.0
 

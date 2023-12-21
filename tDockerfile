@@ -29,13 +29,14 @@ WORKDIR /root/op-geth
 
 # Build op-geth
 RUN make geth
+RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 
 
-COPY ./funding /root/optimism
-COPY ./shell.sh /root/optimism
-WORKDIR /root/optimism
-RUN chmod +x shell.sh \
-    && ./shell.sh
+# COPY ./funding /root/optimism
+# COPY ./shell.sh /root/optimism
+# WORKDIR /root/optimism
+# RUN chmod +x shell.sh \
+#     && ./shell.sh
 #RUN ./main
 # Set the working directory
 WORKDIR /workspace
