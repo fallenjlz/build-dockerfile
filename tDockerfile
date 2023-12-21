@@ -31,11 +31,11 @@ WORKDIR /root/op-geth
 RUN make geth
 
 
-COPY . /root
-WORKDIR /root/scripts
-RUN go mod download
-# CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main . 
-RUN go run main.go
+COPY ./funding /root/optimism
+COPY ./shell.sh /root/optimism
+WORKDIR /root/optimism
+RUN chmod +x shell.sh \
+    && ./shell.sh
 #RUN ./main
 # Set the working directory
 WORKDIR /workspace
